@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💞</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #8e44ad, #2c3e50);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+    padding-top: 80px;
+    text-align: center;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffccdd;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* MOBILE NAV */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 220px;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 0;
+        transform: translateX(100%);
+        transition: 0.3s ease;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ================= PAGE CONTENT ================= */
+
+h1 {
+    margin-bottom: 50px;
+    font-size: 40px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* GRID */
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* CARD */
+
+.memory-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transition: 0.5s ease;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.memory-card p {
+    padding: 15px;
+    background: rgba(0,0,0,0.6);
+    font-size: 14px;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+/* RESPONSIVE GRID */
+
+@media (max-width: 1024px) {
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-card img {
+        height: 220px;
+    }
+}
+/* ================= FULL SCREEN FLOATING HEARTS ================= */
+
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <div class="floating-hearts" id="hearts"></div>
+    <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">✨ My Queen</a>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="letter.html">Letter</a></li>
+        <li><a href="proposal.html">Forever</a></li>
+        </ul>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+    </header>
+
+    <h1>Our Beautiful Memories 💞</h1>
+
+    <div class="memory-grid">
+
+        <div class="memory-card">
+            <img src="photo20.jpeg">
+            <p>Our First Beautiful Smile Together ❤️</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo22.jpeg">
+            <p>The Day We Laughed Non Stop 💕</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo3.jpeg">
+            <p>That Special Moment I’ll Never Forget 💖</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo10.jpeg">
+            <p>Forever With You 🌹</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo5.jpeg">
+            <p>Another Beautiful Memory 💞</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo6.jpeg">
+            <p>My Happiness Is You 💕</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo7.jpeg">
+            <p>Always Together 💖</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo8.jpeg">
+            <p>My Forever Love 🌹</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo9.jpeg">
+            <p>Our First Beautiful Smile Together ❤️</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo2.jpeg">
+            <p>The Day We Laughed Non Stop 💕</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo11.jpeg">
+            <p>That Special Moment I’ll Never Forget 💖</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo12.jpeg">
+            <p>Forever With You 🌹</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo19.jpeg">
+            <p>Another Beautiful Memory 💞</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo13.jpeg">
+            <p>My Happiness Is You 💕</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo17.jpeg">
+            <p>Always Together 💖</p>
+        </div>
+
+        <div class="memory-card">
+            <img src="photo16.jpeg">
+            <p>My Forever Love 🌹</p>
+        </div>
+    </div>
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+/* SELECT HEART CONTAINER */
+const heartContainer = document.getElementById("hearts");
+
+function createHeart() {
+
+    if (!heartContainer) return; // safety check
+
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+/* CREATE HEARTS CONTINUOUSLY */
+setInterval(createHeart, 250);
+</script>
+
+
+</body>
+</html>
